@@ -9,16 +9,8 @@ import "./less/index.less";
 
 // let headerSec = document.querySelector("header");
 
-// headerSec.addEventListener("mouseover", (e) => {
-//   e.target.style.backgroundColor = "red";
-//   e.target.style.color = "white";
-// });
-// headerSec.addEventListener("mouseout", (e) => {
-//   e.target.style.backgroundColor = "";
-//   e.target.style.color = "white";
-// });
-
 const navItems = document.querySelectorAll(".nav-link");
+const imgSelec = document.getElementsByTagName("img");
 
 navItems.forEach((item) => {
   item.addEventListener(
@@ -31,4 +23,20 @@ navItems.forEach((item) => {
     },
     false
   );
+});
+
+const allImg = document.querySelectorAll("img");
+allImg.forEach((item) => {
+  item.addEventListener("mouseover", (e) => {
+    item.style.cursor = "pointer";
+  });
+  item.addEventListener("load", () => {
+    item.style.filter = "blur(10px)";
+  });
+});
+
+allImg.forEach((item) => {
+  item.addEventListener("dblclick", () => {
+    item.style.filter = "unset";
+  });
 });
